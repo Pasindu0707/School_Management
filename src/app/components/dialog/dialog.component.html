@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Search</h2>
+<mat-dialog-content>Filter by</mat-dialog-content>
+<mat-dialog-actions>
+  <mat-form-field>
+    <mat-label>Select</mat-label>
+    <mat-select [(ngModel)]="selectedValue">
+      <mat-option value="Name">Name</mat-option>
+
+      <mat-option value="Address">Address</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <form class="example-form">
+    <mat-form-field>
+      <mat-label>{{ selectedValue === 'Name' ? 'Name' : 'Address' }}</mat-label>
+      <input matInput placeholder="" [(ngModel)]="searchValue" name="searchInput">
+    </mat-form-field>
+  </form>
+<div class="mat-dialog-actions2">
+  <button mat-button mat-dialog-close="true" class="mat-button search-button" (click)="search()">Search</button>
+  <button mat-button mat-dialog-close="false" class="mat-button cancel-button" (click)="cancel()">Cancel</button>
+</div>
+</mat-dialog-actions>

@@ -1,0 +1,42 @@
+<hr>
+<h1>Students-List</h1>
+<hr>
+<br>
+<div class="form-container"></div>
+
+<div class="search-container">
+  <form class="form-container">
+    <mat-form-field>
+      <input mat-dialog-actions (click)="openDialog()" matInput placeholder="Search" class="mat-input">
+    </mat-form-field>
+  </form>
+  <div *ngIf="filterCriteria" class="filter-info">
+    <p class="filter-text">Filtered by: {{ filterCriteria }}</p>
+    <button mat-button (click)="resetFilters()" class="cancel-button">Cancel</button>
+  </div>
+</div>
+
+<div *ngIf="filterCriteria">
+  <button mat-button (click)="resetFilters()">Cancel</button>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Student Name </th>
+      <th>Student Contact Number</th>
+      <th>Student Address</th>
+      <th>Student Email</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let s of filteredStudents">
+    <td>{{s?.name}}</td>
+    <td>{{s?.contact}}</td>
+    <td>{{s?.address}}</td>
+    <td>{{s?.email}}</td>
+
+  </tr>
+
+  </tbody>
+</table>
